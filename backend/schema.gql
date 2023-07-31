@@ -4,7 +4,7 @@
 # -----------------------------------------------
 
 type Mutation {
-  craeteUser: User!
+  craeteUser(name: String!): User!
 }
 
 type Query {

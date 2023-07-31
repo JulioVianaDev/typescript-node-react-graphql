@@ -1,4 +1,4 @@
-import { Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { User } from "../models/User";
 
 @Resolver()
@@ -10,8 +10,10 @@ export class UserResolver{
     return this.data
   }
   @Mutation(()=>User)
-  async craeteUser(){
-    const user ={id: '1',name: "Tomate"}
+  async craeteUser(
+    @Arg('name') name: string
+  ){
+    const user ={id: '1',name: name}
     this.data.push(user)
     return user
   }
